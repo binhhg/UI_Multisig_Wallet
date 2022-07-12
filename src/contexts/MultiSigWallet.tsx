@@ -210,7 +210,7 @@ function reducer(state: State = INITIAL_STATE, action: Action) {
             const {data} = action;
 
             const txIndex = parseInt(data.txIndex);
-
+            const tokens = state.tokens
             const transactions = state.transactions.map((tx) => {
                 if (tx.txIndex === txIndex) {
                     const updatedTx = {
@@ -219,6 +219,11 @@ function reducer(state: State = INITIAL_STATE, action: Action) {
 
                     if (data.executed) {
                         updatedTx.executed = true;
+                        tokens.map(token => {
+                            if(token.addressToken === updatedTx.addressToken){
+                                token.value = +token.value - (+updatedTx.value)+ ''
+                            }
+                        })
                     } else if (data.cancel) {
                         updatedTx.cancel = true;
                     }
@@ -243,6 +248,7 @@ function reducer(state: State = INITIAL_STATE, action: Action) {
             return {
                 ...state,
                 transactions,
+                tokens
             };
         }
         default:

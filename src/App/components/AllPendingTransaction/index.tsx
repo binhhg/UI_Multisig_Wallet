@@ -6,14 +6,17 @@ interface Props {}
 
 const AllPendingTransaction: React.FC<Props> = () => {
     const {state} = useMultiSigWalletContext();
+    //state.transactions.filter(item => !item.executed && !item.cancel)
     return (
-        <div className={styles.title}>
-            <TransactionList
-                numConfirmationsRequired={state.numConfirmationsRequired}
-                data={state.transactions.filter(item => !item.executed && !item.cancel)}
-                count={state.transactionCount}
-            />
-        </div>
+        (state.transactions.filter(item => !item.executed && !item.cancel)).length ?
+                <div className={styles.title}>
+                    <TransactionList
+                        numConfirmationsRequired={state.numConfirmationsRequired}
+                        data={state.transactions.filter(item => !item.executed && !item.cancel)}
+                        count={state.transactionCount}
+                    />
+                </div>: <div style={{fontStyle: "italic", fontSize: 20, fontWeight:"bold", textAlign: "center", padding: 50}}>No transactions</div>
+
     );
 };
 
