@@ -68,7 +68,7 @@ function MultiSigWallet() {
             <Divider plain />
             <div>
                 <div className={styles.titleHeader}>Execute Transaction</div>
-                <div className={styles.transactionTitle}>Numconfirmations required: {state.numConfirmationsRequired}</div>
+                <div className={styles.transactionTitle}>Number of required accept: {state.numConfirmationsRequired}</div>
                 <div className={styles.btnWapper}>
                     <Button className={styles.btn} color="blue" onClick={() => openModal(true)}>Create Transaction</Button>
                     {open && <CreateTxModal open={open} onClose={() => openModal(false)}/>}
@@ -78,7 +78,7 @@ function MultiSigWallet() {
                         onClick={onSubmit}
                         disabled={pending}
                         loading={pending}
-                    >Set numcomfirmation required</Button></div>
+                    >Set number of required accept</Button></div>
                     <div style={{
                         display: `${visible? 'block': 'none'}`
                     }}>

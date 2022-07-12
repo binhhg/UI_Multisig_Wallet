@@ -41,11 +41,8 @@ function App() {
           </>
         ) : (
           <>
-            {error ? (
-              <Message error>{error.message}</Message>
-            ) : (
-              <Message error>Metamask is not connected</Message>
-            )}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png" alt="" style={{width: 200, height: 200}} />
+            <div style={{fontSize: 14, fontStyle: "italic", fontWeight: "bold", marginBottom: 5}}>Please connect to your Metamask</div>
             <Button
               color="blue"
               onClick={() => onClickConnect()}

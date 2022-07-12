@@ -33,20 +33,22 @@ const TransactionList: React.FC<Props> = ({
                     <li style={{
                         fontWeight: 'bolder',
                         fontStyle: 'italic',
-                        fontSize: 14
+                        fontSize: 14,
                     }}>
-                        Transaction {tx.txIndex}
+                        Transaction {tx.txIndex} <div>State transaction: <span style={{color: tx.cancel? 'red': (tx.executed? '#00cc00': 'gray')}}>
+                         {tx.cancel? 'Cancel': `${tx.executed? 'Executed': 'Pending'}`}
+                    </span></div>
                     </li>
                     <div style={{marginLeft: 10}}>
-                        <div>Tx Index: {tx.txIndex}</div>
-                        <div>To: {tx.to}</div>
+                        <div>Index transaction: {tx.txIndex}</div>
+                        <div>To address: {tx.to}</div>
+                        <div>Created By: {tx.by}</div>
                         <div>Value: {tx.value.toString()}</div>
                         <div>Token adrress: {tx.addressToken}</div>
-                        <div>Data: {tx.data}</div>
+                        <div>Data of transaction: {tx.data}</div>
+                        <div>Number of requries accept: {tx.numConfirmations}</div>
                         <div>Executed: {tx.executed.toString()}</div>
                         <div>Cancel: {tx.cancel.toString()}</div>
-                        <div>Confirmations: {tx.numConfirmations}</div>
-                        <div>Created By: {tx.by}</div>
                     </div>
                     <TransactionActions
                         numConfirmationsRequired={numConfirmationsRequired}

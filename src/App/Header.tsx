@@ -8,7 +8,7 @@ const Header: React.FC<Props> = () => {
     return (
         <div>
             <div className={styles.title}>
-                <span>Multi Sig Wallet</span>
+                <span>MultiSig Wallet</span>
             </div>
         </div>
     );
