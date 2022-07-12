@@ -66,6 +66,7 @@ const TransactionActions: React.FC<Props> = ({
         <Button
           onClick={(_e) => revokeConfirmation.call(null)}
           disabled={revokeConfirmation.pending}
+          color="blue"
           loading={revokeConfirmation.pending}
         >
           Revoke Confirmation
@@ -74,6 +75,7 @@ const TransactionActions: React.FC<Props> = ({
         <Button
           onClick={(_e) => confirmTx.call(null)}
           disabled={confirmTx.pending}
+          color="blue"
           loading={confirmTx.pending}
         >
           Confirm
@@ -83,6 +85,7 @@ const TransactionActions: React.FC<Props> = ({
         <Button
           onClick={(_e) => executeTx.call(null)}
           disabled={executeTx.pending}
+          color="blue"
           loading={executeTx.pending}
         >
           Execute
@@ -90,6 +93,7 @@ const TransactionActions: React.FC<Props> = ({
       )}
       {!tx.cancel && (
           <Button
+              color="blue"
               onClick={(_e) => cancelTx
                   .call(null)}
               disabled={cancelTx.pending}
